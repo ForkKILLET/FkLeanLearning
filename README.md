@@ -22,6 +22,7 @@
 | [AdvancedFunction.lean](src/ReintroductionToProofs/AdvancedFunction.lean) | 单射、满射、逆函数、函数外延性与 Lawvere 不动点定理 |
 | [Equivalence.lean](src/ReintroductionToProofs/Equivalence.lean) | 类型等价、积与和、柯里化 |
 | [NaturalNumbers.lean](src/ReintroductionToProofs/NaturalNumbers.lean) | 自然数、递归、归纳与加法 |
+| [Dependent.lean](src/ReintroductionToProofs/Dependent.lean) | 依赖类型族、依赖函数、依赖对、柯里化与类型论选择公理 |
 | [MultiProof.lean](src/MultiProof.lean) | 共用签名的一题多解宏 `proofs` |
 
 [ReintroductionToProofs.lean](src/ReintroductionToProofs.lean) 是所有现有章节的导入入口。
