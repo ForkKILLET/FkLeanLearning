@@ -1,14 +1,16 @@
 # Lean 学习项目
 
 个人 Lean 4 学习笔记与习题解答，记录证明思路以及 term、tactic 等不同写法。
-目前主要学习 Emily Riehl 的 **Reintroduction to Proofs**。
+目前学习 Emily Riehl 的 **Reintroduction to Proofs** 和 Alex Kontorovich 的 **Real Analysis, The Game**。
 
 本仓库包含习题答案；希望独立完成练习时，建议先在游戏中尝试。
 
 ## 学习来源
 
 - [Reintroduction to Proofs 在线游戏](https://adam.math.hhu.de/#/g/emilyriehl/reintroductiontoproofs)
-- [游戏源码](https://github.com/emilyriehl/ReintroductionToProofs)
+- [Reintroduction to Proofs 源码](https://github.com/emilyriehl/ReintroductionToProofs)
+- [Real Analysis, The Game 在线游戏](https://adam.math.hhu.de/#/g/alexkontorovich/realanalysisgame)
+- [Real Analysis, The Game 源码](https://github.com/AlexKontorovich/RealAnalysisGame)
 
 题目陈述、章节标题与部分说明来自上述项目，解答在学习过程中编写和调整。
 本仓库是个人学习记录，不是游戏的官方版本；本地使用的 Lean、mathlib 版本和
@@ -23,10 +25,13 @@
 | [Equivalence.lean](src/ReintroductionToProofs/Equivalence.lean) | 类型等价、积与和、柯里化 |
 | [NaturalNumbers.lean](src/ReintroductionToProofs/NaturalNumbers.lean) | 自然数、递归、归纳与加法 |
 | [Dependent.lean](src/ReintroductionToProofs/Dependent.lean) | 依赖类型族、依赖函数、依赖对、柯里化与类型论选择公理 |
+| [RealAnalysisGame/](src/RealAnalysisGame/) | 基础 tactic、二项式展开、数列极限、阿基米德性质及习题集 1–3 |
 | [MultiProof.lean](src/MultiProof.lean) | 共用签名的一题多解宏 `proofs` |
 
-[ReintroductionToProofs.lean](src/ReintroductionToProofs.lean) 是所有现有章节的导入入口。
-练习中的具名声明位于 `ReintroductionToProofs` 命名空间，避免与标准库和 mathlib 重名。
+[ReintroductionToProofs.lean](src/ReintroductionToProofs.lean) 和
+[RealAnalysisGame.lean](src/RealAnalysisGame.lean) 分别是两个系列的章节导入入口。
+练习中的具名声明分别位于 `ReintroductionToProofs` 和 `RealAnalysisStory` 命名空间，
+避免与标准库和 mathlib 重名。
 
 ## 本地使用
 
@@ -96,7 +101,13 @@ import Mathlib.Tactic.Constructor
 
 ## 许可证
 
-本项目采用 [MIT 许可证](LICENSE)。原创贡献署名为 forkkillet。
+本项目原创贡献采用 [MIT 许可证](LICENSE)，署名为 forkkillet；上游内容保留各自许可证。
 来自 Reintroduction to Proofs 的内容遵循其
 [上游 MIT 许可证](https://github.com/emilyriehl/ReintroductionToProofs/blob/main/LICENSE)，
 本仓库保留了 Jon Eugster（Game Skeleton）和 Emily Riehl（游戏内容）的版权声明。
+
+[RealAnalysisGame/](src/RealAnalysisGame/) 中的题目陈述、说明和 `SeqLim` 定义来自
+Alex Kontorovich 的 RealAnalysisGame，遵循其
+[Apache-2.0 许可证](LICENSES/RealAnalysisGame-Apache-2.0.txt)。
+本地文件对上游关卡进行了摘录与适配，移除了游戏框架命令，并在学习过程中编写、调整证明；
+这些修改已在文件头标明。上游来源内容不适用本仓库的 MIT 许可声明。

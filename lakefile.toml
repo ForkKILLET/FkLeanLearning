@@ -1,6 +1,6 @@
 name = "lean-learning"
 version = "0.1.0"
-defaultTargets = ["ReintroductionToProofs"]
+defaultTargets = ["ReintroductionToProofs", "RealAnalysisGame"]
 srcDir = "src"
 
 [[require]]
@@ -14,3 +14,7 @@ name = "MultiProof"
 [[lean_lib]]
 name = "ReintroductionToProofs"
 globs = ["ReintroductionToProofs", "ReintroductionToProofs.+"]
+
+[[lean_lib]]
+name = "RealAnalysisGame"
+globs = ["RealAnalysisGame", "RealAnalysisGame.+"]
