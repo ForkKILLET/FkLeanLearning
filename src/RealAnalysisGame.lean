@@ -5,3 +5,8 @@ import RealAnalysisGame.NewtonsCalculationOfPi
 import RealAnalysisGame.PSet2
 import RealAnalysisGame.MoreFunWithSequences
 import RealAnalysisGame.PSet3
+import RealAnalysisGame.EvenMoreFunWithSequences
+import RealAnalysisGame.PSet4
+import RealAnalysisGame.AlgebraicLimitTheoremPartI
+import RealAnalysisGame.AlgebraicLimitTheoremPartII
+import RealAnalysisGame.PSet6

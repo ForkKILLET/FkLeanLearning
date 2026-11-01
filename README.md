@@ -25,7 +25,7 @@
 | [Equivalence.lean](src/ReintroductionToProofs/Equivalence.lean) | 类型等价、积与和、柯里化 |
 | [NaturalNumbers.lean](src/ReintroductionToProofs/NaturalNumbers.lean) | 自然数、递归、归纳与加法 |
 | [Dependent.lean](src/ReintroductionToProofs/Dependent.lean) | 依赖类型族、依赖函数、依赖对、柯里化与类型论选择公理 |
-| [RealAnalysisGame/](src/RealAnalysisGame/) | 基础 tactic、二项式展开、数列极限、阿基米德性质及习题集 1–3 |
+| [RealAnalysisGame/](src/RealAnalysisGame/) | 基础 tactic、数列收敛与发散、极限运算、夹逼定理及习题集 1–4、6 |
 | [MultiProof.lean](src/MultiProof.lean) | 共用签名的一题多解宏 `proofs` |
 
 [ReintroductionToProofs.lean](src/ReintroductionToProofs.lean) 和
@@ -85,6 +85,10 @@ proofs : True where
 - `term`、`tactic` 等标签用于区分解法，不会创建同名声明。
 - 文档注释附到第一份解答生成的声明上。
 
+项目的 [.vscode/settings.json](.vscode/settings.json) 为 Lean 文件启用按缩进折叠，
+使 `proofs` 中的多行解法可以分别折叠。这也意味着未缩进的 `namespace … end`
+不再使用语言服务器提供的整体折叠范围。
+
 ## mathlib 导入
 
 按需要导入模块，例如：
@@ -106,7 +110,7 @@ import Mathlib.Tactic.Constructor
 [上游 MIT 许可证](https://github.com/emilyriehl/ReintroductionToProofs/blob/main/LICENSE)，
 本仓库保留了 Jon Eugster（Game Skeleton）和 Emily Riehl（游戏内容）的版权声明。
 
-[RealAnalysisGame/](src/RealAnalysisGame/) 中的题目陈述、说明和 `SeqLim` 定义来自
+[RealAnalysisGame/](src/RealAnalysisGame/) 中的题目陈述、说明和 `SeqLim`、`SeqConv` 定义来自
 Alex Kontorovich 的 RealAnalysisGame，遵循其
 [Apache-2.0 许可证](LICENSES/RealAnalysisGame-Apache-2.0.txt)。
 本地文件对上游关卡进行了摘录与适配，移除了游戏框架命令，并在学习过程中编写、调整证明；
