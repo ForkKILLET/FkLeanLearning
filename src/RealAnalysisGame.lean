@@ -7,6 +7,11 @@ import RealAnalysisGame.MoreFunWithSequences
 import RealAnalysisGame.PSet3
 import RealAnalysisGame.EvenMoreFunWithSequences
 import RealAnalysisGame.PSet4
-import RealAnalysisGame.AlgebraicLimitTheoremPartI
-import RealAnalysisGame.AlgebraicLimitTheoremPartII
+import RealAnalysisGame.AlgebraicLimitTheorem.PartI
+import RealAnalysisGame.AlgebraicLimitTheorem.PartII
 import RealAnalysisGame.PSet6
+import RealAnalysisGame.AlgebraicLimitTheorem.PartIII
+import RealAnalysisGame.PSet7
+import RealAnalysisGame.Induction
+import RealAnalysisGame.PSet8
+import RealAnalysisGame.AlgebraicLimitTheorem.PartIV

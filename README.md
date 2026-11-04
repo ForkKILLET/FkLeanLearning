@@ -91,6 +91,10 @@ proofs : True where
 
 ## mathlib 导入
 
+实分析练习的公共 mathlib 模块和 `MultiProof` 统一由
+[Prelude.lean](src/RealAnalysisGame/Prelude.lean) 导入，按基础数学、tactic 和项目工具分组。
+各章导入 `RealAnalysisGame.Prelude`；使用其他章节的定理时，仍显式导入对应章节。
+
 按需要导入模块，例如：
 
 ```lean
@@ -114,4 +118,5 @@ import Mathlib.Tactic.Constructor
 Alex Kontorovich 的 RealAnalysisGame，遵循其
 [Apache-2.0 许可证](LICENSES/RealAnalysisGame-Apache-2.0.txt)。
 本地文件对上游关卡进行了摘录与适配，移除了游戏框架命令，并在学习过程中编写、调整证明；
-这些修改已在文件头标明。上游来源内容不适用本仓库的 MIT 许可声明。
+各文件头保留简短的改编标识，统一指向本 README 中的来源、许可和修改说明。
+上游来源内容不适用本仓库的 MIT 许可声明。

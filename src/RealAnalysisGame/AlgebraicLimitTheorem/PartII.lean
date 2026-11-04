@@ -1,18 +1,6 @@
-/-
-Adapted from Alex Kontorovich's RealAnalysisGame (Apache-2.0).
-https://github.com/AlexKontorovich/RealAnalysisGame
-Modified for this learning project; proofs written and adjusted locally.
-See LICENSES/RealAnalysisGame-Apache-2.0.txt at the repository root.
--/
-import Mathlib.Basic.Real.Basic
-import Mathlib.Tactic.Ring.RingNF
-import Mathlib.Tactic.Bound
-import Mathlib.Tactic.Cases
-import Mathlib.Algebra.Order.Archimedean.Real.Basic
-import Mathlib.Algebra.Order.Group.Abs
+/- Adapted from RealAnalysisGame; see the repository README.md for attribution and modification details. -/
 
 import RealAnalysisGame.Prelude
-import MultiProof
 
 set_option autoImplicit false
 
@@ -91,14 +79,14 @@ example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : ∃ N, ∀ n ≥ N, a n 
 
 /-- Theorem `SqueezeThm`: Prove this -/
 theorem SqueezeThm (a b c : ℕ → ℝ) (L : ℝ)
-    (aToL : SeqLim a L) (cToL : SeqLim c L)
+    (a_to_L : SeqLim a L) (c_to_L : SeqLim c L)
     (aLeb : ∀ n, a n ≤ b n) (bLec : ∀ n, b n ≤ c n) :
     SeqLim b L := by
   intro ε ε_pos
-  specialize aToL ε ε_pos
-  specialize cToL ε ε_pos
-  choose Na hNa using aToL
-  choose Nc hNc using cToL
+  specialize a_to_L ε ε_pos
+  specialize c_to_L ε ε_pos
+  choose Na hNa using a_to_L
+  choose Nc hNc using c_to_L
   use Na + Nc
   intro n hn
   specialize hNa n (by bound)

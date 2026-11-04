@@ -1,13 +1,6 @@
-/-
-Adapted from Alex Kontorovich's RealAnalysisGame (Apache-2.0).
-https://github.com/AlexKontorovich/RealAnalysisGame
-Modified for this learning project; proofs written and adjusted locally.
-See LICENSES/RealAnalysisGame-Apache-2.0.txt at the repository root.
--/
-import Mathlib.Basic.Real.Basic
-import Mathlib.Tactic.Ring.RingNF
+/- Adapted from RealAnalysisGame; see the repository README.md for attribution and modification details. -/
 
-import MultiProof
+import RealAnalysisGame.Prelude
 
 set_option autoImplicit false
 
