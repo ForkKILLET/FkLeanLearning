@@ -33,7 +33,7 @@ theorem TermLeSum
 -- Level 2: Bounded
 
 /-- Theorem `Bdd_of_ConvNonzero`: Prove this -/
-theorem Bdd_of_ConvNonzero (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (_hL : L ≠ 0) : SeqBdd a := by
+theorem Bdd_of_ConvNonzero (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
   specialize ha 1 (by bound)
   choose N hN using ha
   let sum := ∑ k ∈ range N, |a k|
