@@ -10,9 +10,9 @@ namespace RealAnalysisStory
 
 /-- Theorem `Pset8Ex1`: Prove the statement. -/
 theorem Pset8Ex1 (n : ℕ) : 2 * n + 9 ≤ 2 ^ (n + 4) := by
-  induction' n with d hd
+  induction' n with n hn
   · bound
-  · ring_nf at hd ⊢
+  · ring_nf at hn ⊢
     bound
 
 -- Problem 2
@@ -21,23 +21,23 @@ theorem Pset8Ex1 (n : ℕ) : 2 * n + 9 ≤ 2 ^ (n + 4) := by
 example : ∃ N, ∀ n, (n + N) ^ 2 ≤ 2 ^ (n + N) := by
   use 4
   intro n
-  induction' n with d hd
+  induction' n with n hn
   · bound
-  · ring_nf at hd ⊢
-    have hdiff : 2 * d + 9 ≤ 2 ^ d * 16 := by
-      have h := Pset8Ex1 d
-      rewrite [(by ring_nf : 2 ^ (d + 4) = 2 ^ d * 16)] at h
+  · ring_nf at hn ⊢
+    have hdiff : 2 * n + 9 ≤ 2 ^ n * 16 := by
+      have h := Pset8Ex1 n
+      rewrite [(by ring_nf : 2 ^ (n + 4) = 2 ^ n * 16)] at h
       apply h
-    linarith only [hdiff, hd]
+    linarith only [hdiff, hn]
 
 -- Problem 3
 
 /-- Prove the statement. -/
 example (n : ℕ) : ∃ k, n * (n + 1) * (2 * n + 1) = 6 * k := by
-  induction' n with d hd
+  induction' n with n hn
   · use 0
-  · choose k hk using hd
-    use k + (d + 1) ^ 2
+  · choose k hk using hn
+    use k + (n + 1) ^ 2
     ring_nf at hk ⊢
     rewrite [← hk]
     ring_nf
@@ -47,9 +47,9 @@ example (n : ℕ) : ∃ k, n * (n + 1) * (2 * n + 1) = 6 * k := by
 /-- Theorem `SubseqGe`: Prove the statement. -/
 theorem SubseqGe {σ : ℕ → ℕ} (hσ : ∀ i j, i < j → σ i < σ j) : ∀ n, n ≤ σ n := by
   intro n
-  induction' n with d hd
+  induction' n with n hn
   · bound
-  · have hσd : σ d < σ (d + 1) := hσ d (d + 1) (by bound)
+  · have hσn : σ n < σ (n + 1) := hσ n (n + 1) (by bound)
     bound
 
 end RealAnalysisStory

@@ -12,18 +12,18 @@ namespace RealAnalysisStory
 proofs IdLeTwoPow (n : ℕ) : n < 2 ^ n where
 
   | by_cases := by
-    induction' n with k hk
+    induction' n with n hn
     · bound
-    · by_cases hk0 : k = 0
-      · rewrite [hk0]
+    · by_cases hn0 : n = 0
+      · rewrite [hn0]
         bound
       · ring_nf
-        linarith only [ge_one_of_nonzero hk0, hk]
+        linarith only [ge_one_of_nonzero hn0, hn]
 
   | linarith := by
-    induction' n with k hk
+    induction' n with n hn
     · bound
     · ring_nf
-      linarith only [hk]
+      linarith only [hn]
 
 end RealAnalysisStory

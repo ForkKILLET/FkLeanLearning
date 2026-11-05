@@ -14,17 +14,17 @@ namespace RealAnalysisStory
 theorem TermLeSum
     {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X]
     (a : ℕ → X) (N : ℕ) : ∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k| := by
-  induction' N with D hD
+  induction' N with N hN
   · intro n hn
     contradiction
   · intro n hn
     rewrite [sum_range_succ]
-    by_cases hn' : n < D
-    · specialize hD n hn'
-      have haD : |a D| ≥ 0 := by bound
+    by_cases hn' : n < N
+    · specialize hN n hn'
+      have haN : |a N| ≥ 0 := by bound
       bound
-    · rewrite [(by bound : n = D)]
-      have hsumd : ∑ i ∈ range D, |a i| ≥ 0 := by
+    · rewrite [(by bound : n = N)]
+      have hsum : ∑ i ∈ range N, |a i| ≥ 0 := by
         apply sum_nonneg
         intro i hi
         bound
