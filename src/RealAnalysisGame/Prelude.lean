@@ -37,11 +37,23 @@ def SeqConv (a : ℕ → ℝ) : Prop :=
   ∃ L, SeqLim a L
 
 /--
-A sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is bounded (`SeqBdd` holds) if
-there exists some positive `M : X` so that `|a n| ≤ M`, for all `n`.
+A sequence `a : ℕ → ℝ` is bounded (`SeqBdd` holds) if
+there exists some positive `M : ℝ` so that `|a n| ≤ M`, for all `n`.
 -/
-def SeqBdd {X : Type} [Lattice X] [AddGroup X] (a : ℕ → X) : Prop :=
+def SeqBdd (a : ℕ → ℝ) : Prop :=
   ∃ M > 0, ∀ n, |a n| ≤ M
+
+/--
+A sequence `a : ℕ → ℝ` is bounded by (`SeqBddBy` holds) `M : ℝ` if, for all `n`, `a n ≤ M`.
+-/
+def SeqBddBy (a : ℕ → ℝ) (M : ℝ) : Prop :=
+  ∀ n, a n ≤ M
+
+/--
+A sequence `σ : ℕ → ℕ` is a _subsequence_ if `∀ i j, i < j → σ i < σ j`.
+-/
+def Subseq (σ : ℕ → ℕ) : Prop :=
+  ∀ i j, i < j → σ i < σ j
 
 -- Theorems
 

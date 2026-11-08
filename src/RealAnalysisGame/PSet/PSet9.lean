@@ -12,8 +12,8 @@ namespace RealAnalysisStory
 -- Problem 1
 
 /-- Theorem `Bdd_of_Conv`: Prove the statement. -/
-theorem Bdd_of_Conv (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
-  apply Bdd_of_ConvNonzero a L ha
+example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
+  apply Bdd_of_Conv a L ha
 
 -- Problem 2
 

@@ -32,8 +32,8 @@ theorem TermLeSum
 
 -- Level 2: Bounded
 
-/-- Theorem `Bdd_of_ConvNonzero`: Prove this -/
-theorem Bdd_of_ConvNonzero (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
+/-- Theorem `Bdd_of_Conv`: Prove the statement. -/
+theorem Bdd_of_Conv (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
   specialize ha 1 (by bound)
   choose N hN using ha
   let sum := ∑ k ∈ range N, |a k|
@@ -54,5 +54,10 @@ theorem Bdd_of_ConvNonzero (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBd
       have htri := abs_add_le (a n - L) L
       ring_nf at htri
       linarith only [htri, hN, hsum]
+
+/-- Theorem `Bdd_of_ConvNonzero`: Prove this -/
+theorem Bdd_of_ConvNonzero
+    (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (_hL : L ≠ 0) : SeqBdd a := by
+  apply Bdd_of_Conv a L ha
 
 end RealAnalysisStory
