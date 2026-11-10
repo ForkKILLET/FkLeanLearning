@@ -55,6 +55,14 @@ A sequence `σ : ℕ → ℕ` is a _subsequence_ if `∀ i j, i < j → σ i < �
 def Subseq (σ : ℕ → ℕ) : Prop :=
   ∀ i j, i < j → σ i < σ j
 
+/--
+For a sequence `a : ℕ → X` is said to satisfy `IsCauchy` (that is, the sequence "is Cauchy") if:
+for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N` and `m ≥ n`,
+we have `|a m - a n| < ε`.
+-/
+def IsCauchy {X : Type*} [Lattice X] [AddGroup X] (a : ℕ → X) : Prop :=
+  ∀ (ε : X), 0 < ε → ∃ N : ℕ, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε
+
 -- Theorems
 
 /-- If a natural number `n ≠ 0`, then `1 ≤ n`. -/
