@@ -22,31 +22,31 @@ namespace RealAnalysisStory
 -- Definitions
 
 /--
-For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`,
+For a sequence `a : ℕ → X` and an element `L : X`,
 we say that `SeqLim a L` holds if: for every `ε > 0`,
 there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`.
 -/
-def SeqLim (a : ℕ → ℝ) (L : ℝ) : Prop :=
+def SeqLim {X : Type*} [Lattice X] [AddGroup X] (a : ℕ → X) (L : X) : Prop :=
   ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε
 
 /--
-A sequence `a : ℕ → ℝ` converges (`SeqConv a` holds) if
-there exists some `L : ℝ` so that `a → L`, that is, `SeqLim a L` holds.
+A sequence `a : ℕ → X` converges (`SeqConv a` holds) if
+there exists some `L : X` so that `a → L`, that is, `SeqLim a L` holds.
 -/
-def SeqConv (a : ℕ → ℝ) : Prop :=
+def SeqConv {X : Type*} [Lattice X] [AddGroup X] (a : ℕ → X) : Prop :=
   ∃ L, SeqLim a L
 
 /--
-A sequence `a : ℕ → ℝ` is bounded (`SeqBdd` holds) if
-there exists some positive `M : ℝ` so that `|a n| ≤ M`, for all `n`.
+A sequence `a : ℕ → X` is bounded (`SeqBdd` holds) if
+there exists some positive `M : X` so that `|a n| ≤ M`, for all `n`.
 -/
-def SeqBdd (a : ℕ → ℝ) : Prop :=
+def SeqBdd {X : Type*} [Lattice X] [AddGroup X] (a : ℕ → X) : Prop :=
   ∃ M > 0, ∀ n, |a n| ≤ M
 
 /--
-A sequence `a : ℕ → ℝ` is bounded by (`SeqBddBy` holds) `M : ℝ` if, for all `n`, `a n ≤ M`.
+A sequence `a : ℕ → X` is bounded by (`SeqBddBy` holds) `M : X` if, for all `n`, `a n ≤ M`.
 -/
-def SeqBddBy (a : ℕ → ℝ) (M : ℝ) : Prop :=
+def SeqBddBy {X : Type*} [Preorder X] (a : ℕ → X) (M : X) : Prop :=
   ∀ n, a n ≤ M
 
 /--

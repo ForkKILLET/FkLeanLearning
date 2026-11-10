@@ -77,7 +77,7 @@ theorem OrderLimGt (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (K : ℝ) (hK :
 -- Problem 4
 
 /-- Prove this -/
-example : ∃ a, SeqLim a 0 ∧ ∀ n, 0 < a n := by
+example : ∃ a : ℕ → ℝ, SeqLim a 0 ∧ ∀ n, 0 < a n := by
   let a : ℕ → ℝ := fun n => 1 / (n + 1)
   use a
   split_ands
