@@ -17,7 +17,7 @@ example (a : ℕ → ℝ)
   specialize hl (1/2) (by bound)
   choose N hN using hl
 
-  have ⟨den, hden⟩ : ∃ den : ℕ, den = 2 * (N + 1) := by use 2 * (N + 1)
+  have ⟨den, den_def⟩ : ∃ den : ℕ, den = 2 * (N + 1) := by use 2 * (N + 1)
 
   have heven : |3 - 1 / den - l| < 1/2 := by
     specialize hN (2 * den) (by bound)
@@ -42,7 +42,7 @@ example (a : ℕ → ℝ)
   have habs : |2 - (den : ℝ)⁻¹ * 2| < 1 := by
     linarith only [htriangle, hsum]
 
-  rewrite [hden] at habs
+  rewrite [den_def] at habs
   push_cast at habs
   norm_num at habs
   ring_nf at habs
