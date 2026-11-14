@@ -18,4 +18,6 @@ import RealAnalysisGame.AlgebraicLimitTheorem.PartIV
 import RealAnalysisGame.PSet.PSet9
 import RealAnalysisGame.AlgebraicLimitTheorem.PartV
 import RealAnalysisGame.PSet.PSet10
-import RealAnalysisGame.TheRealNumbersI
+import RealAnalysisGame.CauchySequences.PartI
+import RealAnalysisGame.PSet.PSet11
+import RealAnalysisGame.CauchySequences.PartII
