@@ -13,7 +13,7 @@ theorem LimUnique (a : ℕ → ℝ) (L M : ℝ) (haL : SeqLim a L) (haM : SeqLim
   by_contra hLM
 
   have hlim_diff : L - M ≠ 0 := by bound
-  have hlim_abs : |L - M| > 0 := abs_pos.2 hlim_diff
+  have hlim_abs : |L - M| > 0 := abs_pos_of_nonzero hlim_diff
   specialize haL (|L - M| / 2) (by bound)
   specialize haM (|L - M| / 2) (by bound)
   choose NL hNL using haL
@@ -23,7 +23,7 @@ theorem LimUnique (a : ℕ → ℝ) (L M : ℝ) (haL : SeqLim a L) (haM : SeqLim
 
   let an := a (NL + NM)
   rewrite [← abs_neg (an - L)] at hNL
-  have htri := abs_add_le (-(an - L)) (an - M)
+  have htri := abs_add (-(an - L)) (an - M)
   ring_nf at htri
   have hsum : |-(an - L)| + |an - M| < |L - M| := by linarith only [hNL, hNM]
   ring_nf at hsum
@@ -35,13 +35,13 @@ theorem LimUnique (a : ℕ → ℝ) (L M : ℝ) (haL : SeqLim a L) (haM : SeqLim
 /-- Theorem `EventuallyGeHalfLimPos` -/
 theorem EventuallyGeHalfLimPos (a : ℕ → ℝ) (L : ℝ) (haL : SeqLim a L) (L_nonzero : L ≠ 0) :
     ∃ N, ∀ n ≥ N, |L| / 2 ≤ |a n| := by
-  have L_abs_pos : |L| > 0 := abs_pos.2 L_nonzero
+  have L_abs_pos : |L| > 0 := abs_pos_of_nonzero L_nonzero
   specialize haL (|L| / 2) (by bound)
   choose N hN using haL
   use N
   intro n hn
   specialize hN n (by bound)
-  have htri := abs_add_le (a n) (L - a n)
+  have htri := abs_add (a n) (L - a n)
   rewrite [← abs_neg (L - a n)] at htri
   ring_nf at htri
   linarith only [htri, hN]
@@ -59,7 +59,7 @@ theorem AbsLim
   intro n hn
   specialize hN n hn
   rewrite [b_eq_aabs]
-  have hsub := abs_abs_sub_abs_le (a n) L
+  have hsub := (abs_Lipschitz (x := a n) (y := L))
   linarith only [hsub, hN]
 
 -- Level 4: SeqInvLim
@@ -71,7 +71,7 @@ theorem InvLim
     SeqLim b (1 / L) := by
   intro ε ε_pos
   let ε' := |L| * |L| * ε / 2
-  have Labs_pos := abs_pos.2 L_nonzero
+  have Labs_pos := abs_pos_of_nonzero L_nonzero
   have han := EventuallyGeHalfLimPos a L haL L_nonzero
 
   specialize haL ε' (by bound)
@@ -83,7 +83,7 @@ theorem InvLim
   intro n hn
   specialize hN n (by bound)
   specialize hNan n (by bound)
-  have an_ne0 : a n ≠ 0 := abs_ne_zero.1 (by bound)
+  have an_ne0 : a n ≠ 0 := nonzero_of_abs_pos (by bound)
 
   rewrite [b_eq_ainv]
   have hnorm : 1 / a n - 1 / L = -(a n - L) / (L * a n) := by

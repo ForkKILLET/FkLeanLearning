@@ -29,7 +29,7 @@ theorem SumLim (a b c : ℕ → ℝ) (L M : ℝ)
   have hsum : |a n + b n - (L + M)| = |(a n - L) + (b n - M)| := by ring_nf
   rewrite [hsum]
 
-  have htri := abs_add_le (a n - L) (b n - M)
+  have htri := abs_add (a n - L) (b n - M)
   linarith only [htri, hNa n (by bound), hNb n (by bound)]
 
 -- Level 2: Split Ands

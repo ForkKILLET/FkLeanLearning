@@ -18,7 +18,7 @@ theorem ProdLimNeNe
 
   intro ε ε_pos
   let ε' := ε / (B + |L|)
-  have Labs_pos := abs_pos.2 hL
+  have Labs_pos := abs_pos_of_nonzero hL
   have ε'_pos : 0 < ε' := by bound
 
   specialize ha ε' ε'_pos
@@ -33,7 +33,7 @@ theorem ProdLimNeNe
 
   rewrite [hc]
   rewrite [(by ring_nf : a n * b n - L * M = (a n - L) * b n + L * (b n - M))]
-  have htri := abs_add_le ((a n - L) * b n) (L * (b n - M))
+  have htri := abs_add ((a n - L) * b n) (L * (b n - M))
   have hsum : |(a n - L) * b n| + |L * (b n - M)| < ε := by
     rewrite [abs_mul, abs_mul]
     have hleft : |a n - L| * |b n| ≤ ε' * B := by bound

@@ -12,7 +12,7 @@ namespace RealAnalysisStory
 theorem EventuallyBdd_of_SeqConv
     (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (hL : L ≠ 0) :
     ∃ N, ∀ n ≥ N, |a n| ≤ 2 * |L| := by
-  have Labs_pos := abs_pos.2 hL
+  have Labs_pos := abs_pos_of_nonzero hL
   specialize ha |L| (by bound)
   choose N hN using ha
   use N
@@ -20,7 +20,7 @@ theorem EventuallyBdd_of_SeqConv
   intro n hn
   specialize hN n hn
 
-  have htri := abs_add_le (a n - L) L
+  have htri := abs_add (a n - L) L
   ring_nf at htri
   linarith only [htri, hN]
 
@@ -59,13 +59,13 @@ proofs (x y : ℝ) : |(|x| - |y|)| ≤ |x - y| where
     · rewrite [abs_of_nonneg hx, abs_of_nonneg hy]
       bound
     · have hy' : y < 0 := by bound
-      have htri := abs_add_le x y
+      have htri := abs_add x y
       rewrite [abs_of_nonneg hx, abs_of_neg' hy'] at htri ⊢
       rewrite [abs_of_nonneg (by bound : x - y ≥ 0)]
       ring_nf at htri ⊢
       apply htri
     · have hx' : x < 0 := by bound
-      have htri := abs_add_le x y
+      have htri := abs_add x y
       rewrite [abs_of_neg' hx', abs_of_nonneg hy] at htri ⊢
       rewrite [(by ring_nf : -x - y = -(x + y)), abs_neg]
       rewrite [(by ring_nf : x - y = -(-x + y)), abs_neg]
@@ -77,6 +77,6 @@ proofs (x y : ℝ) : |(|x| - |y|)| ≤ |x - y| where
       rewrite [(by ring_nf : -x - -y = -(x - y)), abs_neg]
       bound
 
-  | theorem' := by apply abs_abs_sub_abs_le
+  | theorem' := by apply abs_Lipschitz
 
 end RealAnalysisStory

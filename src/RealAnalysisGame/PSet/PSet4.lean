@@ -32,7 +32,7 @@ example (a : ℕ → ℝ)
     apply hN
 
   have htriangle := by
-    apply abs_add_le (3 - 1 / den - l) (-1 - 1 / den + l)
+    apply abs_add (3 - 1 / den - l) (-1 - 1 / den + l)
   ring_nf at htriangle
 
   have hsum : |3 - 1 / den - l| + |-1 - 1 / den + l| < 1 := by

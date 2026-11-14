@@ -22,7 +22,7 @@ theorem IsCauchy_of_SeqConv {a : ℕ → ℝ} (ha : SeqConv a) : IsCauchy a := b
   intro n hn m hm
   have hanL := haL n (by bound)
   have hamL := haL m (by bound)
-  have htri := abs_add_le (a m - L) (L - a n)
+  have htri := abs_add (a m - L) (L - a n)
   ring_nf at htri
   rewrite [← abs_neg (L - a n)] at htri
   ring_nf at htri
@@ -43,7 +43,7 @@ theorem IsCauchy_of_Sum {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrd
   use Na + Nb
   intro n hn m hm
   change |(a m + b m) - (a n + b n)| < ε
-  have htri := abs_add_le (a m - a n) (b m - b n)
+  have htri := abs_add (a m - a n) (b m - b n)
   ring_nf at htri ⊢
   specialize ha n (by bound) m (by bound)
   specialize hb n (by bound) m (by bound)
@@ -73,7 +73,7 @@ theorem IsBdd_of_Cauchy {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrd
       bound
     · have hnN : n ≥ N := by bound
       specialize ha N (by bound) n hnN
-      have htri := abs_add_le (a n - a N) (a N)
+      have htri := abs_add (a n - a N) (a N)
       ring_nf at htri
       bound
 

@@ -51,7 +51,7 @@ theorem Bdd_of_Conv (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := 
     · have han : |a n| ≤ sum := TermLeSum a N n hn
       bound
     · specialize hN n (by bound)
-      have htri := abs_add_le (a n - L) L
+      have htri := abs_add (a n - L) L
       ring_nf at htri
       linarith only [htri, hN, hsum]
 

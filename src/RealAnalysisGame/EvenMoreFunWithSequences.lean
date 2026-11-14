@@ -31,7 +31,7 @@ example (a : ℕ → ℝ) (ha : ∀ n, a n = (-1) ^ n) : ¬ SeqConv a := by
     apply hN
 
   have htriangle : |(1 - l) + (l + 1)| ≤ |1 - l| + |l + 1| := by
-    apply abs_add_le
+    apply abs_add
   ring_nf at htriangle
   norm_num at htriangle
 
