@@ -8,7 +8,7 @@ namespace RealAnalysisStory
 
 -- Level 1: NotEven
 
-/-- Theorem `IdLeTwoPow`: Prove this -/
+/-- Theorem `IdLeTwoPow` -/
 proofs IdLeTwoPow (n : ℕ) : n < 2 ^ n where
 
   | by_cases := by

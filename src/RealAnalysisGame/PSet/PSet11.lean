@@ -11,7 +11,6 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Prove this -/
 example (a : ℕ → ℝ) (ha : ∀ n, a n = n) : ¬ ∃ σ, Subseq σ ∧ SeqConv (a ∘ σ) := by
   by_contra ⟨σ, hσ, L, haσ⟩
   specialize haσ 1 (by bound)

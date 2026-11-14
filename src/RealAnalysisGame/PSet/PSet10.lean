@@ -14,7 +14,7 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Theorem `LimZeroTimesBdd`: Prove this -/
+/-- Theorem `LimZeroTimesBdd` -/
 theorem LimZeroTimesBdd
     (a b c : ℕ → ℝ) (ha : SeqLim a 0) (hb : SeqBdd b) (hc : ∀ n, c n = a n * b n) : SeqLim c 0 := by
   let ⟨M, hM, hbM⟩ := hb
@@ -38,7 +38,7 @@ theorem LimZeroTimesBdd
 
 -- Problem 2
 
-/-- Theorem `ProdLim`: Prove this -/
+/-- Theorem `ProdLim` -/
 theorem ProdLim
     (a b c : ℕ → ℝ) (L M : ℝ) (ha : SeqLim a L) (hb : SeqLim b M)
     (hc : ∀ n, c n = a n * b n) :
@@ -61,7 +61,7 @@ theorem ProdLim
 
 -- Problem 3
 
-/-- Theorem `OrderLimGt`: Prove this -/
+/-- Theorem `OrderLimGt` -/
 theorem OrderLimGt (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (K : ℝ) (hK : ∀ n, K < a n) : K ≤ L := by
   by_contra hKL
   have hKL : K > L := by bound
@@ -76,7 +76,6 @@ theorem OrderLimGt (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (K : ℝ) (hK :
 
 -- Problem 4
 
-/-- Prove this -/
 example : ∃ a : ℕ → ℝ, SeqLim a 0 ∧ ∀ n, 0 < a n := by
   let a : ℕ → ℝ := fun n => 1 / (n + 1)
   use a
@@ -98,7 +97,6 @@ example : ∃ a : ℕ → ℝ, SeqLim a 0 ∧ ∀ n, 0 < a n := by
 
 -- Problem 5
 
-/-- Prove this -/
 example (a : ℕ → ℝ) (ha : ∀ n, a n = n) : ¬ SeqBdd a := by
   by_contra hbdd
   let ⟨M, hM, haM⟩ := hbdd
@@ -110,7 +108,7 @@ example (a : ℕ → ℝ) (ha : ∀ n, a n = n) : ¬ SeqBdd a := by
 
 -- Problem 6
 
-/-- Theorem `Diverge_of_DiffSubseqLim`: Prove this -/
+/-- Theorem `Diverge_of_DiffSubseqLim` -/
 theorem Diverge_of_DiffSubseqLim
     (a : ℕ → ℝ) (σ τ : ℕ → ℕ) (σsub : Subseq σ) (τsub : Subseq τ)
     (L M : ℝ) (hσ : SeqLim (a ∘ σ) L) (hτ : SeqLim (a ∘ τ) M) (hLM : L ≠ M) :

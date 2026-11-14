@@ -11,7 +11,7 @@ namespace RealAnalysisStory
 
 -- Level 1: Big Boss : Limits are Cauchy
 
-/-- Theorem `IsCauchy_of_SeqConv`: Prove this -/
+/-- Theorem `IsCauchy_of_SeqConv` -/
 theorem IsCauchy_of_SeqConv {a : ℕ → ℝ} (ha : SeqConv a) : IsCauchy a := by
   intro ε ε_pos
   let ⟨L, haL⟩ := ha
@@ -31,7 +31,7 @@ theorem IsCauchy_of_SeqConv {a : ℕ → ℝ} (ha : SeqConv a) : IsCauchy a := b
 
 -- Level 2: Sums of Cauchy sequences
 
-/-- Theorem `IsCauchy_of_Sum`: Prove this -/
+/-- Theorem `IsCauchy_of_Sum` -/
 theorem IsCauchy_of_Sum {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X]
     (a b : ℕ → X) (ha : IsCauchy a) (hb : IsCauchy b) : IsCauchy (a + b) := by
   intro ε ε_pos
@@ -52,7 +52,7 @@ theorem IsCauchy_of_Sum {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrd
 
 -- Level 3: Cauchy Implies Bounded
 
-/-- Theorem `IsBdd_of_Cauchy`: Prove this -/
+/-- Theorem `IsBdd_of_Cauchy` -/
 theorem IsBdd_of_Cauchy {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X]
     (a : ℕ → X) (ha : IsCauchy a) : SeqBdd a := by
   let ⟨N, ha⟩ := ha 1 (by bound)

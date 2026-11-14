@@ -33,7 +33,6 @@ example : ∃ c, ∀ x y : ℝ, x ^ 2 + y ^ 2 = 2 → x * y = 1 → (x + y) ^ 2 
 
 -- Problem 3
 
-/-- Solve the problem -/
 proofs (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g x + 3) (h2 : g 0 = 5) : g 1 = 8 where
 
   | to_left := by
@@ -49,7 +48,6 @@ proofs (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g x + 3) (h2 : g 0 = 5) : g 1 
 
 -- Problem 4
 
-/-- Solve the problem -/
 proofs (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g x + 3) (h2 : g 0 = 5) : g 2 = 11 where
 
   | to_left := by
@@ -68,7 +66,6 @@ proofs (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g x + 3) (h2 : g 0 = 5) : g 2 
 
 -- Problem 5
 
-/-- Solve the problem -/
 example
     (p : ℝ → ℝ) (x : ℝ) (h1 : ∀ t, p t = t ^ 2 + 2 * t) (h2 : p x = 15) :
     ∃ b, x ^ 2 + 2 * x = b := by

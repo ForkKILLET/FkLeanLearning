@@ -10,7 +10,7 @@ namespace RealAnalysisStory
 
 -- Level 1: Finite Sums
 
-/-- Theorem `TermLeSum`: Prove this -/
+/-- Theorem `TermLeSum` -/
 theorem TermLeSum
     {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X]
     (a : ℕ → X) (N : ℕ) : ∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k| := by
@@ -32,7 +32,7 @@ theorem TermLeSum
 
 -- Level 2: Bounded
 
-/-- Theorem `Bdd_of_Conv`: Prove the statement. -/
+/-- Theorem `Bdd_of_Conv` -/
 theorem Bdd_of_Conv (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
   specialize ha 1 (by bound)
   choose N hN using ha
@@ -55,7 +55,7 @@ theorem Bdd_of_Conv (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := 
       ring_nf at htri
       linarith only [htri, hN, hsum]
 
-/-- Theorem `Bdd_of_ConvNonzero`: Prove this -/
+/-- Theorem `Bdd_of_ConvNonzero` -/
 theorem Bdd_of_ConvNonzero
     (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (_hL : L ≠ 0) : SeqBdd a := by
   apply Bdd_of_Conv a L ha

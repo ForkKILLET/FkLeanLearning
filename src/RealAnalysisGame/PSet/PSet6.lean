@@ -9,7 +9,6 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Prove the statement. -/
 example (x y z : ℝ) (hx : x = 2) (hy : y = 3) (hz : z = 4) : x = 2 ∧ y = 3 ∧ z = 4 := by
   split_ands
   · apply hx
@@ -18,13 +17,11 @@ example (x y z : ℝ) (hx : x = 2) (hy : y = 3) (hz : z = 4) : x = 2 ∧ y = 3 �
 
 -- Problem 2
 
-/-- Prove the statement. -/
 example (x y z : ℝ) (h : x = 2 ∧ y = 3 ∧ z = 4) : z = 4 := by
   apply h.2.2
 
 -- Problem 3
 
-/-- Prove the statement. -/
 example (a : ℕ → ℝ) (ha : SeqLim a 5) : ∃ N, ∀ n ≥ N, 0 < a n := by
   specialize ha 1 (by bound)
   choose N hN using ha
@@ -37,7 +34,6 @@ example (a : ℕ → ℝ) (ha : SeqLim a 5) : ∃ N, ∀ n ≥ N, 0 < a n := by
 
 -- Problem 4
 
-/-- Prove the statement. -/
 proofs (a : ℕ → ℝ) (ha : ∀ N, ∃ n ≥ N, |a n| > 10) : ¬ ∃ L, |L| < 5 ∧ SeqLim a L where
 
   | lt_abs := by
@@ -80,7 +76,6 @@ proofs (a : ℕ → ℝ) (ha : ∀ N, ∃ n ≥ N, |a n| > 10) : ¬ ∃ L, |L| <
 
 -- Problem 5
 
-/-- Prove the statement. -/
 example (a b c d e : ℕ → ℝ) (L : ℝ)
     (ha : SeqLim a L) (hc : SeqLim c L) (he : SeqLim e L)
     (hab : ∀ n, a n ≤ b n) (hbc : ∀ n, b n ≤ c n) (hcd : ∀ n, c n ≤ d n) (hde : ∀ n, d n ≤ e n) :

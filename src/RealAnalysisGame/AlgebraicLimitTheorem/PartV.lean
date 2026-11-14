@@ -10,7 +10,7 @@ namespace RealAnalysisStory
 
 -- Level 1: Big Boss: Product of Sequences
 
-/-- Theorem `ProdLimNeNe`: Prove this -/
+/-- Theorem `ProdLimNeNe` -/
 theorem ProdLimNeNe
     (a b c : ℕ → ℝ) (L M : ℝ) (hL : L ≠ 0) (_hM : M ≠ 0) (ha : SeqLim a L) (hb : SeqLim b M)
     (hc : ∀ n, c n = a n * b n) : SeqLim c (L * M) := by
@@ -46,7 +46,7 @@ theorem ProdLimNeNe
 
 -- Level 2: Order Limit Theorem
 
-/-- Theorem `OrderLimLe`: Prove this -/
+/-- Theorem `OrderLimLe` -/
 theorem OrderLimLe
     (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (K : ℝ) (hK : SeqBddBy a K) : L ≤ K := by
   by_contra hLK
@@ -62,7 +62,7 @@ theorem OrderLimLe
 
 -- Level 3: Subsequences
 
-/-- Theorem `SubseqConv`: Prove this -/
+/-- Theorem `SubseqConv` -/
 theorem SubseqConv
     (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (σ : ℕ → ℕ) (hσ : Subseq σ) : SeqLim (a ∘ σ) L := by
   intro ε ε_pos
@@ -76,7 +76,6 @@ theorem SubseqConv
 
 -- Level 4: Subsequence Example
 
-/-- Prove this -/
 example (a : ℕ → ℝ) (ha : ∀ n, a n = (-1) ^ n) : ∃ σ L, Subseq σ ∧ SeqLim (a ∘ σ) L := by
   use (2 * ·)
   use 1

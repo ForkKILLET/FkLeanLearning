@@ -32,7 +32,7 @@ theorem LimUnique (a : ℕ → ℝ) (L M : ℝ) (haL : SeqLim a L) (haM : SeqLim
 
 -- Level 2: Eventually
 
-/-- Theorem `EventuallyGeHalfLimPos`: Prove this -/
+/-- Theorem `EventuallyGeHalfLimPos` -/
 theorem EventuallyGeHalfLimPos (a : ℕ → ℝ) (L : ℝ) (haL : SeqLim a L) (L_nonzero : L ≠ 0) :
     ∃ N, ∀ n ≥ N, |L| / 2 ≤ |a n| := by
   have L_abs_pos : |L| > 0 := abs_pos.2 L_nonzero
@@ -48,7 +48,7 @@ theorem EventuallyGeHalfLimPos (a : ℕ → ℝ) (L : ℝ) (haL : SeqLim a L) (L
 
 -- Level 3: Sequences of Absolute Values
 
-/-- Theorem `AbsLim`: Prove this -/
+/-- Theorem `AbsLim` -/
 theorem AbsLim
     (a : ℕ → ℝ) (L : ℝ) (haL : SeqLim a L) (b : ℕ → ℝ) (b_eq_aabs : ∀ n, b n = |a n|) :
     SeqLim b |L| := by
@@ -64,7 +64,7 @@ theorem AbsLim
 
 -- Level 4: SeqInvLim
 
-/-- Theorem `InvLim`: Prove this -/
+/-- Theorem `InvLim` -/
 theorem InvLim
     (a : ℕ → ℝ) (L : ℝ) (haL : SeqLim a L) (L_nonzero : L ≠ 0)
     (b : ℕ → ℝ) (b_eq_ainv : ∀ n, b n = 1 / a n) :

@@ -8,7 +8,7 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Theorem `Pset8Ex1`: Prove the statement. -/
+/-- Theorem `Pset8Ex1` -/
 theorem Pset8Ex1 (n : ℕ) : 2 * n + 9 ≤ 2 ^ (n + 4) := by
   induction' n with n hn
   · bound
@@ -17,7 +17,6 @@ theorem Pset8Ex1 (n : ℕ) : 2 * n + 9 ≤ 2 ^ (n + 4) := by
 
 -- Problem 2
 
-/-- Prove the statement. -/
 example : ∃ N, ∀ n, (n + N) ^ 2 ≤ 2 ^ (n + N) := by
   use 4
   intro n
@@ -32,7 +31,6 @@ example : ∃ N, ∀ n, (n + N) ^ 2 ≤ 2 ^ (n + N) := by
 
 -- Problem 3
 
-/-- Prove the statement. -/
 example (n : ℕ) : ∃ k, n * (n + 1) * (2 * n + 1) = 6 * k := by
   induction' n with n hn
   · use 0
@@ -44,7 +42,7 @@ example (n : ℕ) : ∃ k, n * (n + 1) * (2 * n + 1) = 6 * k := by
 
 -- Problem 4
 
-/-- Theorem `SubseqGe`: Prove the statement. -/
+/-- Theorem `SubseqGe` -/
 theorem SubseqGe {σ : ℕ → ℕ} (hσ : ∀ i j, i < j → σ i < σ j) : ∀ n, n ≤ σ n := by
   intro n
   induction' n with n hn

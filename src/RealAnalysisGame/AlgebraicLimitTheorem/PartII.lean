@@ -34,7 +34,6 @@ theorem SumLim (a b c : ℕ → ℝ) (L M : ℝ)
 
 -- Level 2: Split Ands
 
-/-- Prove this -/
 example (x y : ℝ) (hx : x = 2) (hy : y = 3) : x = 2 ∧ y = 3 := by
   split_ands
   · apply hx
@@ -42,20 +41,17 @@ example (x y : ℝ) (hx : x = 2) (hy : y = 3) : x = 2 ∧ y = 3 := by
 
 -- Level 3: Left and Right
 
-/-- Prove this -/
 example (x y : ℝ) (_hx : x = 2) (hy : y = 3) : x = 3 ∨ y = 3 := by
   right
   apply hy
 
 -- Level 4: Dot Notation
 
-/-- Prove this -/
 example (x y : ℝ) (h : x = 2 ∧ y = 3) : y = 3 := by
   apply h.2
 
 -- Level 5: Cases'
 
-/-- Prove this -/
 example (x y : ℝ) (h : x = 2 ∨ y = 3) : (x - 2) * (y - 3) = 0 := by
   cases' h with h1 h2
   · rewrite [h1]
@@ -65,7 +61,6 @@ example (x y : ℝ) (h : x = 2 ∨ y = 3) : (x - 2) * (y - 3) = 0 := by
 
 -- Level 6: AbsLe
 
-/-- Prove this -/
 example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : ∃ N, ∀ n ≥ N, a n ≥ L - 1 := by
   specialize ha 1 (by bound)
   choose N hN using ha
@@ -77,7 +72,7 @@ example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : ∃ N, ∀ n ≥ N, a n 
 
 -- Level 7: Big Boss : Squeeze Theorem
 
-/-- Theorem `SqueezeThm`: Prove this -/
+/-- Theorem `SqueezeThm` -/
 theorem SqueezeThm (a b c : ℕ → ℝ) (L : ℝ)
     (a_to_L : SeqLim a L) (c_to_L : SeqLim c L)
     (aLeb : ∀ n, a n ≤ b n) (bLec : ∀ n, b n ≤ c n) :

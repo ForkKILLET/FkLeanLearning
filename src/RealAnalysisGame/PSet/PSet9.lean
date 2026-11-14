@@ -11,13 +11,12 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Theorem `Bdd_of_Conv`: Prove the statement. -/
+/-- Theorem `Bdd_of_Conv` -/
 example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : SeqBdd a := by
   apply Bdd_of_Conv a L ha
 
 -- Problem 2
 
-/-- Prove the statement -/
 example (N : ℕ) : ∃ k : ℕ, N * (N + 1) = 2 * k := by
   induction' N with N hN
   · use 0
@@ -29,7 +28,7 @@ example (N : ℕ) : ∃ k : ℕ, N * (N + 1) = 2 * k := by
 
 -- Problem 3
 
-/-- Theorem `SumFirstN`: Prove the statement. -/
+/-- Theorem `SumFirstN` -/
 theorem SumFirstN (N : ℕ) : 2 * ∑ k ∈ range N, (k + 1) = N * (N + 1) := by
   induction' N with N hN
   · bound

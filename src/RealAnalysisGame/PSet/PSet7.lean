@@ -8,7 +8,7 @@ namespace RealAnalysisStory
 
 -- Problem 1
 
-/-- Theorem `EventuallyBdd_of_SeqConv`: Prove the statement. -/
+/-- Theorem `EventuallyBdd_of_SeqConv` -/
 theorem EventuallyBdd_of_SeqConv
     (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) (hL : L ≠ 0) :
     ∃ N, ∀ n ≥ N, |a n| ≤ 2 * |L| := by
@@ -26,7 +26,6 @@ theorem EventuallyBdd_of_SeqConv
 
 -- Problem 2
 
-/-- Prove the statement. -/
 example
     (a b : ℕ → ℝ) (L M : ℝ)
     (ha : SeqLim a L) (hb : SeqLim b M) (hLM : L < M) :
@@ -48,7 +47,6 @@ example
 
 -- Problem 3
 
-/-- Prove the statement. -/
 proofs (x y : ℝ) : |(|x| - |y|)| ≤ |x - y| where
 
   | cases := by
