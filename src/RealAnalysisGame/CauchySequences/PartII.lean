@@ -11,7 +11,7 @@ namespace RealAnalysisStory
 /-- Theorem `Subseq_of_Iterate` -/
 theorem Subseq_of_Iterate
     (σ : ℕ → ℕ) (hσ : ∀ n, n < σ n) (n₀ : ℕ) : Subseq (fun n => σ^[n] n₀) := by
-  apply subseq_of_succ
+  apply Subseq_of_succ
   intro n
   rewrite [← succ_iterate]
   apply hσ
@@ -27,7 +27,7 @@ proofs (p : ℕ → Prop) (h : ∀ N, ∃ n > N, p n) : ∃ σ, Subseq σ ∧ �
       · apply (h σk).choose
     use σ
     split_ands
-    · apply subseq_of_succ
+    · apply Subseq_of_succ
       intro n
       apply (h (σ n)).choose_spec.1
     · intro n
@@ -40,7 +40,7 @@ proofs (p : ℕ → Prop) (h : ∀ N, ∃ n > N, p n) : ∃ σ, Subseq σ ∧ �
       (h 0).choose
       fun _ σk => (h σk).choose
     ⟨ σ
-    , subseq_of_succ σ fun n => (h (σ n)).choose_spec.1
+    , Subseq_of_succ σ fun n => (h (σ n)).choose_spec.1
     , fun
       | 0 => (h 0).choose_spec.2
       | .succ k => (h (σ k)).choose_spec.2

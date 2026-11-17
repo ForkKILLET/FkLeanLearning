@@ -75,6 +75,18 @@ we have `|a m - a n| < ε`.
 def IsCauchy {X : Type*} [Lattice X] [AddGroup X] (a : ℕ → X) : Prop :=
   ∀ (ε : X), 0 < ε → ∃ N : ℕ, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε
 
+/--
+For a sequence `a : ℕ → X` and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`.
+-/
+def IsAPeak {X : Type*} [LinearOrder X] (a : ℕ → X) (n : ℕ) : Prop :=
+  ∀ m > n, a m ≤ a n
+
+/--
+We say that a sequence `a : ℕ → X` satisfies `UnBddPeaks a`, if its set of peaks is unbounded.
+-/
+def UnBddPeaks {X : Type*} [LinearOrder X] (a : ℕ → X) : Prop :=
+  ∀ k, ∃ n > k, IsAPeak a n
+
 -- Theorems
 
 /-- The triangle inequality. -/
@@ -105,8 +117,18 @@ theorem ge_one_of_nonzero {n : ℕ} (h : n ≠ 0) : 1 ≤ n := by omega
 For a function `σ : ℕ → ℕ`, if `σ n < σ (n + 1)`, then for any `i < j`, `σ i < σ j` --
 that is, `Subseq σ` holds.
 -/
-theorem subseq_of_succ (σ : ℕ → ℕ) (hσ : ∀ n, σ n < σ (n + 1)) : Subseq σ := by
+theorem Subseq_of_succ (σ : ℕ → ℕ) (hσ : ∀ n, σ n < σ (n + 1)) : Subseq σ := by
   apply strictMono_nat_of_lt_succ hσ
+
+/-- If `a n ≤ a (n+1)` holds for all `n`, then `a` is `Monotone`. -/
+theorem Monotone_of_succ {X : Type*} [Preorder X]
+    (a : ℕ → X) (ha : ∀ n, a n ≤ a (n + 1)) : Monotone a := by
+  apply monotone_nat_of_le_succ ha
+
+/-- If `a (n+1) ≤ a n` holds for all `n`, then `a` is `Antitone`. -/
+theorem Antitone_of_succ {X : Type*} [Preorder X]
+    (a : ℕ → X) (ha : ∀ n, a (n + 1) ≤ a n) : Antitone a := by
+  apply antitone_nat_of_succ_le ha
 
 /--
 If `a` is `Antitone`, then `-a` is `Monotone`.
@@ -134,5 +156,4 @@ theorem IsCauchyNeg
   rewrite [show -a m - -a n = -(a m - a n) by ring_nf]
   rewrite [abs_neg]
   apply ha
-
 end RealAnalysisStory

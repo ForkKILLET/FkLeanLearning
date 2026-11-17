@@ -80,7 +80,7 @@ example (a : ℕ → ℝ) (ha : ∀ n, a n = (-1) ^ n) : ∃ σ L, Subseq σ ∧
   use (2 * ·)
   use 1
   split_ands
-  · intro i j hij
+  · intro m n hmn
     bound
   · intro ε ε_pos
     use 0
