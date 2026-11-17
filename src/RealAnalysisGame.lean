@@ -24,3 +24,4 @@ import RealAnalysisGame.CauchySequences.PartII
 import RealAnalysisGame.PSet.PSet12
 import RealAnalysisGame.MonotoneSubsequence
 import RealAnalysisGame.PSet.PSet13
+import RealAnalysisGame.BolzanoWeierstrass
